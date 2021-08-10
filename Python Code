@@ -1,0 +1,23 @@
+Turns out the previous uploaded files were in Javascript so here is the python version.
+
+while True:
+    def on_button_pressed_a():
+    basic.show_icon(IconNames.HAPPY)
+    for index in range(4):
+        music.play_melody("C5 B E G F B D A ", 500)
+    basic.pause(1000)
+    music.play_melody("F - F - F - F - ", 120)
+    pins.servo_write_pin(AnalogPin.P0, 180)
+    basic.pause(300)
+    pins.servo_write_pin(AnalogPin.P0, 0)
+    input.on_button_pressed(Button.A, on_button_pressed_a)
+
+    def on_button_pressed_b():
+        music.play_melody("F E D C - - - - ", 120)
+    input.on_button_pressed(Button.B, on_button_pressed_b)
+
+    music.play_melody("C D E F - - - - ", 120)
+
+    def on_forever():
+        servos.P0.set_pulse(2000)
+    basic.forever(on_forever)
